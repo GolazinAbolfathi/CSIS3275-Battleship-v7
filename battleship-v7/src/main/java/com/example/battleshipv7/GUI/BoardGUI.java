@@ -1,14 +1,10 @@
-package com.example.battleshipv7.entity;
-
-//import com.example.battleShipv2.GUI.MenuListener;
-import com.example.battleshipv7.entity.BoardGUI;
-
+package com.example.battleshipv7.GUI;
+import com.example.battleshipv7.GUI.Update_view;
 import javax.swing.*;
 import java.awt.*;
 
 public class BoardGUI extends JFrame {
 
-    static int gridSize;
     public static JFrame frame;
     JPanel mainPanel;
     JPanel buttonPanel;
@@ -37,12 +33,11 @@ public class BoardGUI extends JFrame {
         c.insets = new Insets(2, 2, 70, 2);
         c.gridx = 1;
         c.gridy = 0;
-        label.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 30));
         mainPanel.add(label,c);
 
         //platBtn:
-        playBtn=new JButton("",new ImageIcon(getClass().getResource("/static/ship.png")));
-       // playBtn.addActionListener(new Update_view());
+        playBtn=new JButton("New Game");
+        playBtn.addActionListener(new Update_view());
         c.fill = GridBagConstraints.CENTER;
         c.insets = new Insets(5, 5, 5, 5);
         c.gridx = 1;
@@ -51,7 +46,7 @@ public class BoardGUI extends JFrame {
 
         //Instructions Button:
         instructionBtn=new JButton("Instructions");
-        //instructionBtn.addActionListener(new Update_view());
+        instructionBtn.addActionListener(new Update_view());
         c.fill = GridBagConstraints.CENTER;
         c.insets = new Insets(5, 5, 5, 5);
         c.gridx = 1;
@@ -59,11 +54,9 @@ public class BoardGUI extends JFrame {
         mainPanel.add(instructionBtn,c);
 
         //Main Frame
-        frame.setSize(600,600);
+        frame.setSize(500,500);
         frame.setResizable(false);
         frame.setVisible(true);
         frame.add(mainPanel);
-
     }
-
 }
