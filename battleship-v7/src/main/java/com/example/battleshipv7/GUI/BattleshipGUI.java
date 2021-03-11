@@ -36,7 +36,6 @@ public class BattleshipGUI extends JFrame {
         BattleshipGUIController mouseClick = new BattleshipGUIController();
         frame.addMouseListener(mouseClick);
 
-        //******************************************************
         backToMain=new JButton("Back to Main Menu");
         GridBagConstraints c = new GridBagConstraints();
         c.gridx = 10;
@@ -46,8 +45,6 @@ public class BattleshipGUI extends JFrame {
         backToMain.addActionListener(new menuAction());
         frame.add(backToMain,c);
 
-
-        //******************************************************
 
     } // End BattleshipGUI constructor
 
