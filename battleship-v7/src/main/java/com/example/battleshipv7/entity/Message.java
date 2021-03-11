@@ -13,12 +13,12 @@ public class Message extends JFrame {
     public Message() {
     }
 
-    public Message(int height, int width, String message) {
+    public Message(String message) {
 
         panel = new JPanel();
         frame = new JFrame();
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setSize(width, height);
+        frame.setSize(100, 50);
         frame.setVisible(true);
         frame.setTitle("Message");
         frame.setResizable(false); //change parameter to true to allow user to resize window

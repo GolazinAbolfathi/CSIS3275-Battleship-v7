@@ -28,14 +28,14 @@ public class BattleshipV7Application extends JFrame {
 		update_view.displayBoard();
 
 //		//create 3 Battleships:
-		Battleship ship1 = new Battleship(1, 2, 2, 0);
-		Battleship ship2 = new Battleship(1, 3, 3, 0);
-		Battleship ship3 = new Battleship(1, 4, 4, 0);
+		Battleship ship1 = new Battleship(1, 1, 0, 0);
+		Battleship ship2 = new Battleship(1, 0, 1, 0);
+		Battleship ship3 = new Battleship(1, 2, 2, 0);
 
 		xShip1Position = ship1.getX();
 		yShip1Position = ship1.getY();
 
-		BattleshipGUIController battleshipGUIController = new BattleshipGUIController();
+		BattleshipGUIController battleshipGUIController = new BattleshipGUIController(xShip1Position,yShip1Position);
 		xClickPosition = battleshipGUIController.getRow();
 		yClickPosition = battleshipGUIController.getCol();
 

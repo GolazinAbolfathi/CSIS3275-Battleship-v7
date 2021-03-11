@@ -19,18 +19,18 @@ public class Update_view extends JFrame implements ActionListener {
         board.createMainBoard();
     }
 
-    public void displayMessage(int height, int width, String message) {
-        Message message1 = new Message(height, width, message);
+    public void displayMessage(String message) {
+        Message message1 = new Message(message);
 
     }
 
-    public void displayHit(int x, int y) {
+    public void displayHit() {
 
-        Message message1 = new Message(x, y, "Hit");
+        Message message1 = new Message("Hit !!");
     }
 
-    public void displayMiss(int x, int y) {
-        Message message1 = new Message(x, y, "Miss");
+    public void displayMiss() {
+        Message message1 = new Message("Miss !!");
     }
 
     public void displayBattleshipGUI() {
