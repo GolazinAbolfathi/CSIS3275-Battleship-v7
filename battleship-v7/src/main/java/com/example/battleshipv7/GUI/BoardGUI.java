@@ -34,58 +34,56 @@ public class BoardGUI extends JFrame {
         mainPanel.setSize(120,300);
         mainPanel.setOpaque(false);
         c.fill = GridBagConstraints.CENTER;
-        c.gridx=0;
+        c.gridx=1;
         c.gridy=2;
 
         //Label:
         JLabel label = new JLabel("Welcome to Battleship! Let's Play!");
-        c.insets = new Insets(20, 2, 70, 2);
-        c.gridx = 1;
-        c.gridy = 0;
         label.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 30));
         label.setForeground(Color.white);
         mainPanel.add(label,c);
+        c.insets = new Insets(20, 2, 70, 2);
+        c.gridx = 1;
+        c.gridy = 0;
 
-        //platBtn:
-        playBtn=new JButton("New Game");
-        playBtn.setPreferredSize(new Dimension(120,80));
-        backgroundButton=new ImageIcon(getClass().getResource("/static/start.jpg"));
-        backgroundButton.getImage().getScaledInstance(110,70,Image.SCALE_DEFAULT);
+        //Play button:
+        backgroundButton=new ImageIcon(getClass().getResource("/static/playF.PNG"));
+        backgroundButton.getImage().getScaledInstance(150,70,Image.SCALE_DEFAULT);
+
         playBtn=new JButton("",backgroundButton);
-        playBtn.setBackground(Color.decode("#FFFFFF"));
+        playBtn.setPreferredSize(new Dimension(150,70));
+        playBtn.addActionListener(new Update_view());
         c.fill = GridBagConstraints.CENTER;
         c.insets = new Insets(5, 5, 5, 5);
         c.gridx = 1;
         c.gridy = 5;
-        playBtn.addActionListener(new Update_view());
         mainPanel.add(playBtn,c);
 
         //Instructions Button:
+
+        backgroundButton=new ImageIcon(getClass().getResource("/static/guide.PNG"));
+        backgroundButton.getImage().getScaledInstance(150,70,Image.SCALE_DEFAULT);
+
+        instructionBtn=new JButton("",backgroundButton);
+        instructionBtn.setPreferredSize(new Dimension(150,70));
+        instructionBtn.addActionListener(new Update_view());
         c.fill = GridBagConstraints.CENTER;
         c.insets = new Insets(5, 5, 5, 5);
         c.gridx = 1;
         c.gridy = 7;
-        backgroundButton=new ImageIcon(getClass().getResource("/static/instructions.jpg"));
-        backgroundButton.getImage().getScaledInstance(110,40,Image.SCALE_DEFAULT);
-        instructionBtn=new JButton("",backgroundButton);
-        instructionBtn.setPreferredSize(new Dimension(120,40));
-        instructionBtn.addActionListener(new Update_view());
-        instructionBtn.setBackground(Color.decode("#FFFFFF"));
         mainPanel.add(instructionBtn,c);
 
         //Credit Button:
-        backgroundButton=new ImageIcon(getClass().getResource("/static/credits.jpg"));
-        backgroundButton.getImage().getScaledInstance(110,70,Image.SCALE_DEFAULT);
-//        creditBtn=new JButton("",new ImageIcon(getClass().getResource("/static/credits.jpg")));
-        creditBtn=new JButton("",backgroundButton);
+        backgroundButton=new ImageIcon(getClass().getResource("/static/creditF.PNG"));
+        backgroundButton.getImage().getScaledInstance(150,70,Image.SCALE_DEFAULT);
 
+        creditBtn=new JButton("",backgroundButton);
+        creditBtn.setPreferredSize(new Dimension(150,70));
+        creditBtn.addActionListener(new Update_view());
         c.fill = GridBagConstraints.CENTER;
-        creditBtn.setPreferredSize(new Dimension(120,70));
         c.insets = new Insets(5, 5, 5, 5);
         c.gridx = 1;
         c.gridy = 8;
-        creditBtn.addActionListener(new Update_view());
-        creditBtn.setBackground(Color.decode("#FFFFFF"));
         mainPanel.add(creditBtn,c);
 
         //Main Frame

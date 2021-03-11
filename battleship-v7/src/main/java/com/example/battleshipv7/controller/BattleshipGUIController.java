@@ -5,12 +5,14 @@ package com.example.battleshipv7.controller;
 
 import com.example.battleshipv7.GUI.BattleshipGUI;
 import com.example.battleshipv7.GUI.Update_view;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.time.temporal.ValueRange;
+
 import static javax.imageio.ImageIO.read;
 
 //BattleshipGUIController class
@@ -103,35 +105,35 @@ public class BattleshipGUIController implements MouseListener {
 
         //if the number of wrong guess is less than 3
 //        if (numbersOfUserGuess <= 3) {
-            this.setRow(Math.abs((e.getX() - distanceLeft) / cellWidth));
-            this.setCol(Math.abs((e.getY() - distanceTop) / cellHeight));
-            isShip = comparePosition();
+        this.setRow(Math.abs((e.getX() - distanceLeft) / cellWidth));
+        this.setCol(Math.abs((e.getY() - distanceTop) / cellHeight));
+        isShip = comparePosition();
 
-            //if hit, draw ship image in the location
-            if (isShip) {
-                update_view.displayHit();
-                try {
-                    img = new ImageIcon(read(getClass().getResource("/static/ship.png")));
-                    g = BattleshipGUI.frame.getGraphics();
-                    g.drawImage(img.getImage(), e.getX(), e.getY(), 45, 30, null);
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                } //end try catch
-                BattleshipGUI.frame.setVisible(true);
-            } else
-
-                //if miss, draw miss image in the location
-                update_view.displayMiss();
+        //if hit, draw ship image in the location
+        if (isShip) {
+            update_view.displayHit();
             try {
-                img = new ImageIcon(read(getClass().getResource("/static/miss.png")));
+                img = new ImageIcon(read(getClass().getResource("/static/ship.png")));
                 g = BattleshipGUI.frame.getGraphics();
                 g.drawImage(img.getImage(), e.getX(), e.getY(), 45, 30, null);
             } catch (IOException ioException) {
                 ioException.printStackTrace();
-            }//end try catch
+            } //end try catch
+            BattleshipGUI.frame.setVisible(true);
+        } else
+
+            //if miss, draw miss image in the location
+            update_view.displayMiss();
+        try {
+            img = new ImageIcon(read(getClass().getResource("/static/miss.png")));
+            g = BattleshipGUI.frame.getGraphics();
+            g.drawImage(img.getImage(), e.getX(), e.getY(), 45, 30, null);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }//end try catch
 //        } else {
-            //if the number of wrong guess is more than 3
-            update_view.displayMessage("Game over");
+        //if the number of wrong guess is more than 3
+        update_view.displayMessage("Game over");
 //        }//end if
     }// End mouseClicked method
 
