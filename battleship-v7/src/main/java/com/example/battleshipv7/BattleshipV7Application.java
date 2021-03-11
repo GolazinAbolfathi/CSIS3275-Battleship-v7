@@ -14,8 +14,13 @@ public class BattleshipV7Application extends JFrame {
 	public static void main(String[] args) {
 		int xShip1Position = 0;
 		int yShip1Position = 0;
-		int xClickPosition = 0;
-		int yClickPosition = 0;
+
+		int xShip2Position = 0;
+		int yShip2Position = 0;
+
+		int xShip3Position = 0;
+		int yShip3Position = 0;
+
 		boolean hit = false;
 		boolean miss = false;
 		int row = 0;
@@ -35,11 +40,14 @@ public class BattleshipV7Application extends JFrame {
 		xShip1Position = ship1.getX();
 		yShip1Position = ship1.getY();
 
-		BattleshipGUIController battleshipGUIController = new BattleshipGUIController(xShip1Position,yShip1Position);
-		xClickPosition = battleshipGUIController.getRow();
-		yClickPosition = battleshipGUIController.getCol();
+		xShip2Position = ship2.getX();
+		yShip2Position = ship2.getY();
 
-		Game game = new Game(xShip1Position, yShip1Position, xClickPosition, yClickPosition);
+		xShip3Position = ship3.getX();
+		yShip3Position = ship3.getY();
+
+		BattleshipGUIController battleshipGUIController = new BattleshipGUIController(xShip1Position,yShip1Position,xShip2Position,yShip2Position,xShip3Position,yShip3Position);
+
 
 	}
 }

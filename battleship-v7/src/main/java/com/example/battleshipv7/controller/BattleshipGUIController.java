@@ -21,6 +21,10 @@ public class BattleshipGUIController implements MouseListener {
 
     int xShip1Position;
     int yShip1Position;
+    int xShip2Position;
+    int yShip2Position;
+    int xShip3Position;
+    int yShip3Position;
 
     //setters
     public void setRow(int row) {
@@ -59,7 +63,7 @@ public class BattleshipGUIController implements MouseListener {
     }
 
     //constructor
-    public BattleshipGUIController(int x,int y) {
+    public BattleshipGUIController(int x1,int y1,int x2,int y2,int x3,int y3) {
         row = 0;
         col = 0;
         distanceLeft = 9;
@@ -67,8 +71,13 @@ public class BattleshipGUIController implements MouseListener {
         cellWidth = 50;
         cellHeight = 50;
         numbersOfUserGuess = 0;
-        this.xShip1Position=x;
-        this.yShip1Position=y;
+        this.xShip1Position=x1;
+        this.yShip1Position=y1;
+        this.xShip2Position=x2;
+        this.yShip2Position=y2;
+        this.xShip3Position=x3;
+        this.yShip3Position=y3;
+
     }
 
     public BattleshipGUIController() {
@@ -125,9 +134,17 @@ public class BattleshipGUIController implements MouseListener {
 
     public boolean comparePosition()
     {
-        ValueRange rangeX = ValueRange.of(xShip1Position-1, xShip1Position+1);
-        ValueRange rangeY = ValueRange.of(yShip1Position-1, yShip1Position+1);
-        if (rangeX.isValidIntValue(row) && rangeY.isValidIntValue(col))
+        ValueRange rangeX1 = ValueRange.of(xShip1Position-1, xShip1Position+1);
+        ValueRange rangeY1 = ValueRange.of(yShip1Position-1, yShip1Position+1);
+        ValueRange rangeX2 = ValueRange.of(xShip2Position-1, xShip2Position+1);
+        ValueRange rangeY2 = ValueRange.of(yShip2Position-1, yShip2Position+1);
+        ValueRange rangeX3 = ValueRange.of(xShip3Position-1, xShip3Position+1);
+        ValueRange rangeY3 = ValueRange.of(yShip3Position-1, yShip3Position+1);
+        if (rangeX1.isValidIntValue(row) && rangeY1.isValidIntValue(col))
+            return true;
+        else if (rangeX2.isValidIntValue(row) && rangeY2.isValidIntValue(col))
+            return true;
+        else if (rangeX3.isValidIntValue(row) && rangeY3.isValidIntValue(col))
             return true;
         else
             return false;
