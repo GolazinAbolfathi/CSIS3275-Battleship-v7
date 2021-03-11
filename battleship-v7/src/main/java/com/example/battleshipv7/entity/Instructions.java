@@ -14,7 +14,7 @@ public class Instructions extends JFrame {
 
         ruleWindow = new JFrame();
         ruleWindow.setTitle("Battleship Instructions");
-        ruleWindow.setSize(700, 500);
+        ruleWindow.setSize(400, 600);
         ruleWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         //create JPanel
@@ -29,9 +29,9 @@ public class Instructions extends JFrame {
 
         //add Jpanel to JFrame
         ruleWindow.add(rulespanel);
-        ruleWindow.setResizable(true);
+        ruleWindow.setResizable(false);
         ruleWindow.setVisible(true);
-        ruleWindow.pack();
+        //ruleWindow.pack();
 
     }
 }

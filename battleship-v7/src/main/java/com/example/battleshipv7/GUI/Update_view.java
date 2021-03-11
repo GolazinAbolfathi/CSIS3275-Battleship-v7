@@ -1,5 +1,6 @@
 package com.example.battleshipv7.GUI;
 
+import com.example.battleshipv7.entity.Credits;
 import com.example.battleshipv7.entity.Instructions;
 import com.example.battleshipv7.entity.Message;
 import com.example.battleshipv7.entity.Message;
@@ -62,11 +63,10 @@ public class Update_view extends JFrame implements ActionListener {
             BattleshipGUI.frame.setVisible(false);
             BoardGUI.frame.setVisible(true);
         }
-//        if (e.getSource()==BattleshipGUI.backToBoardBtn)
-//        {
-//            BattleshipGUI.frame.setVisible(false);
-//            BoardGUI.frame.setVisible(true);
-//        }
+        if (e.getSource()==BoardGUI.creditBtn)
+        {
+            Credits.frame.setVisible(true);
+        }
     }
 }
 
