@@ -65,8 +65,7 @@ public class Update_view extends JFrame implements ActionListener {
         }
         if (e.getSource()==BoardGUI.creditBtn)
         {
-            Credits credits=new Credits();
-//            credits.frame.setVisible(true);
+            Credits credit=new Credits();
         }
     }
 }

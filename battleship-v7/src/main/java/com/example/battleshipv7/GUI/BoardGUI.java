@@ -39,7 +39,7 @@ public class BoardGUI extends JFrame {
 
         //Label:
         JLabel label = new JLabel("Welcome to Battleship! Let's Play!");
-        c.insets = new Insets(10, 2, 70, 2);
+        c.insets = new Insets(20, 2, 70, 2);
         c.gridx = 1;
         c.gridy = 0;
         label.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 30));
@@ -50,7 +50,7 @@ public class BoardGUI extends JFrame {
         playBtn=new JButton("New Game");
         playBtn.setPreferredSize(new Dimension(120,70));
         backgroundButton=new ImageIcon(getClass().getResource("/static/start.jpg"));
-        backgroundButton.getImage().getScaledInstance(120,70,Image.SCALE_DEFAULT);
+        backgroundButton.getImage().getScaledInstance(110,70,Image.SCALE_DEFAULT);
         playBtn=new JButton("",backgroundButton);
         playBtn.setBackground(Color.decode("#FFFFFF"));
         c.fill = GridBagConstraints.CENTER;
@@ -66,16 +66,16 @@ public class BoardGUI extends JFrame {
         c.gridx = 1;
         c.gridy = 7;
         backgroundButton=new ImageIcon(getClass().getResource("/static/instructions.jpg"));
-        backgroundButton.getImage().getScaledInstance(120,70,Image.SCALE_DEFAULT);
+        backgroundButton.getImage().getScaledInstance(110,40,Image.SCALE_DEFAULT);
         instructionBtn=new JButton("",backgroundButton);
-        instructionBtn.setPreferredSize(new Dimension(120,70));
+        instructionBtn.setPreferredSize(new Dimension(120,40));
         instructionBtn.addActionListener(new Update_view());
 //        instructionBtn.setBackground(Color.decode("#FFFFFF"));
         mainPanel.add(instructionBtn,c);
 
         //Credit Button:
         backgroundButton=new ImageIcon(getClass().getResource("/static/credits.jpg"));
-        backgroundButton.getImage().getScaledInstance(120,70,Image.SCALE_DEFAULT);
+        backgroundButton.getImage().getScaledInstance(110,70,Image.SCALE_DEFAULT);
 //        creditBtn=new JButton("",new ImageIcon(getClass().getResource("/static/credits.jpg")));
         creditBtn=new JButton("",backgroundButton);
 
