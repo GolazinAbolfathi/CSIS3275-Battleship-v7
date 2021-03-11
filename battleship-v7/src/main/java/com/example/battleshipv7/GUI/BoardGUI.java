@@ -56,6 +56,7 @@ public class BoardGUI extends JFrame {
         c.gridx = 1;
         c.gridy = 4;
         instructionBtn=new JButton("",new ImageIcon(getClass().getResource("/static/instructions.png")));
+        instructionBtn.setBackground(Color.decode("#A3E4E1"));
         mainPanel.add(instructionBtn,c);
 
         //Main Frame
