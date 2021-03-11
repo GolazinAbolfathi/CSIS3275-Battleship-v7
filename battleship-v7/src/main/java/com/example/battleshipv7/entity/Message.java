@@ -1,6 +1,8 @@
 package com.example.battleshipv7.entity;
 
-import com.example.battleshipv7.GUI.menuAction;
+//import com.example.battleshipv7.GUI.menuAction;
+
+import com.example.battleshipv7.GUI.Update_view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,7 +45,7 @@ public class Message extends JFrame {
 
         //back to main window (Board Button)
         backToBoardBtn = new JButton(message);
-//        backToBoardBtn.addActionListener(new MenuListener());
+        backToBoardBtn.addActionListener(new Update_view());
         c.gridx = 0;
         c.gridy = 4;
         panel.add(backToBoardBtn, c);
@@ -52,7 +54,9 @@ public class Message extends JFrame {
         closeBtn=new JButton("CLOSE");
         c.gridx = 0;
         c.gridy = 3;
-        closeBtn.addActionListener(new menuAction());
+//        closeBtn.addActionListener(new menuAction());
+        closeBtn.addActionListener(new Update_view());
+
         panel.add(closeBtn, c);
         ///////*********************
 

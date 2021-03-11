@@ -26,7 +26,7 @@ public class BattleshipGUI extends JFrame {
         frame.setResizable(false);
         this.row = 0;
         this.col = 0;
-        String path = "src/main/resources/static/radar.jpg";
+        String path = "/static/radar.jpg";
         GameBoard gameBoard = new GameBoard();
         gameBoard.setPath(path);
         gameBoard.setX(0);
@@ -42,7 +42,8 @@ public class BattleshipGUI extends JFrame {
         c.gridy = 0;
         // backToMain.setLocation(10,500);
         backToMain.setBounds(100,500,500,10);
-        backToMain.addActionListener(new menuAction());
+//        backToMain.addActionListener(new menuAction());
+        backToMain.addActionListener(new Update_view());
         frame.add(backToMain,c);
 
 

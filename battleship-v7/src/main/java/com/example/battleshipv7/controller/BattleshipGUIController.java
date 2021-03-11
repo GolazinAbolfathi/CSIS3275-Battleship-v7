@@ -1,12 +1,16 @@
 package com.example.battleshipv7.controller;
 
+import com.example.battleshipv7.GUI.BattleshipGUI;
 import com.example.battleshipv7.GUI.Update_view;
+import com.example.battleshipv7.model.ResourceLoader;
 import org.w3c.dom.ranges.Range;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.time.temporal.ValueRange;
 
 public class BattleshipGUIController implements MouseListener {
@@ -102,8 +106,14 @@ public class BattleshipGUIController implements MouseListener {
         this.setCol(Math.abs((e.getY() - distanceTop) / cellHeight));
 //            update_view.displayMessage(row, col, "Your guess is " + " x " + col + " y" + row);
             isShip=comparePosition();
-            if (isShip)
+            if (isShip) {
                 update_view.displayHit();
+                try {
+                    BattleshipGUI.frame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(ResourceLoader.load("static/ship.png")))));
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
             else
                 update_view.displayMiss();
 

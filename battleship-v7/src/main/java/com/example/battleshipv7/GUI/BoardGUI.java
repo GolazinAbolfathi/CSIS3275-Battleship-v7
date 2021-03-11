@@ -38,7 +38,7 @@ public class BoardGUI extends JFrame {
 
         //platBtn:
         playBtn=new JButton("New Game");
-        playBtn.addActionListener(new Update_view());
+//        playBtn.addActionListener(new Update_view());
         playBtn.setPreferredSize(new Dimension(120,70));
         playBtn=new JButton("",new ImageIcon(getClass().getResource("/static/start.png")));
         playBtn.setBackground(Color.decode("#A3E4E1"));
@@ -47,10 +47,12 @@ public class BoardGUI extends JFrame {
         c.gridx = 1;
         c.gridy = 3;
         mainPanel.add(playBtn,c);
+        playBtn.addActionListener(new Update_view());
+
 
         //Instructions Button:
         instructionBtn=new JButton("Instructions");
-        instructionBtn.addActionListener(new Update_view());
+//        instructionBtn.addActionListener(new Update_view());
         c.fill = GridBagConstraints.CENTER;
         c.insets = new Insets(5, 5, 5, 5);
         c.gridx = 1;
@@ -58,6 +60,7 @@ public class BoardGUI extends JFrame {
         instructionBtn=new JButton("",new ImageIcon(getClass().getResource("/static/instructions.png")));
         instructionBtn.setBackground(Color.decode("#A3E4E1"));
         mainPanel.add(instructionBtn,c);
+        instructionBtn.addActionListener(new Update_view());
 
         //Main Frame
         frame.setSize(500,500);

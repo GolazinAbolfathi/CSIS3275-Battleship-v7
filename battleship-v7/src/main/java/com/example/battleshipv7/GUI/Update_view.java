@@ -51,6 +51,16 @@ public class Update_view extends JFrame implements ActionListener {
         if (e.getSource() == BoardGUI.instructionBtn) {
             Instructions rules = new Instructions();
         }
+
+        if (e.getSource()== Message.closeBtn)
+        {
+            Message.frame.setVisible(false);
+        }
+        if (e.getSource()==BattleshipGUI.backToMain)
+        {
+            BattleshipGUI.frame.setVisible(false);
+            BoardGUI.frame.setVisible(true);
+        }
 //        if (e.getSource()==BattleshipGUI.backToBoardBtn)
 //        {
 //            BattleshipGUI.frame.setVisible(false);
