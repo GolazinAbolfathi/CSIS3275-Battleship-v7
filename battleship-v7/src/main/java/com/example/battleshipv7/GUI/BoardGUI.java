@@ -47,7 +47,7 @@ public class BoardGUI extends JFrame {
         c.gridy = 0;
 
         //Play button:
-        backgroundButton=new ImageIcon(getClass().getResource("/static/playF.PNG"));
+        backgroundButton=new ImageIcon(getClass().getResource("/static/play.jpg"));
         backgroundButton.getImage().getScaledInstance(150,70,Image.SCALE_DEFAULT);
 
         playBtn=new JButton("",backgroundButton);
@@ -61,7 +61,7 @@ public class BoardGUI extends JFrame {
 
         //Instructions Button:
 
-        backgroundButton=new ImageIcon(getClass().getResource("/static/guide.PNG"));
+        backgroundButton=new ImageIcon(getClass().getResource("/static/guide.jpg"));
         backgroundButton.getImage().getScaledInstance(150,70,Image.SCALE_DEFAULT);
 
         instructionBtn=new JButton("",backgroundButton);
@@ -74,7 +74,7 @@ public class BoardGUI extends JFrame {
         mainPanel.add(instructionBtn,c);
 
         //Credit Button:
-        backgroundButton=new ImageIcon(getClass().getResource("/static/creditF.PNG"));
+        backgroundButton=new ImageIcon(getClass().getResource("/static/credit.jpg"));
         backgroundButton.getImage().getScaledInstance(150,70,Image.SCALE_DEFAULT);
 
         creditBtn=new JButton("",backgroundButton);
