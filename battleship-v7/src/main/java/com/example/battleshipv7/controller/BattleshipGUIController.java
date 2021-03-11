@@ -13,6 +13,8 @@ import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.time.temporal.ValueRange;
 
+import static javax.imageio.ImageIO.read;
+
 public class BattleshipGUIController implements MouseListener {
     int row;
     int col;
@@ -29,6 +31,10 @@ public class BattleshipGUIController implements MouseListener {
     int yShip2Position;
     int xShip3Position;
     int yShip3Position;
+
+    ImageIcon img;
+    Graphics g;
+//    BattleshipGUI frame;
 
     //setters
     public void setRow(int row) {
@@ -67,7 +73,7 @@ public class BattleshipGUIController implements MouseListener {
     }
 
     //constructor
-    public BattleshipGUIController(int x1,int y1,int x2,int y2,int x3,int y3) {
+    public BattleshipGUIController(int x1, int y1, int x2, int y2, int x3, int y3) {
         row = 0;
         col = 0;
         distanceLeft = 9;
@@ -75,12 +81,12 @@ public class BattleshipGUIController implements MouseListener {
         cellWidth = 50;
         cellHeight = 50;
         numbersOfUserGuess = 0;
-        this.xShip1Position=x1;
-        this.yShip1Position=y1;
-        this.xShip2Position=x2;
-        this.yShip2Position=y2;
-        this.xShip3Position=x3;
-        this.yShip3Position=y3;
+        this.xShip1Position = x1;
+        this.yShip1Position = y1;
+        this.xShip2Position = x2;
+        this.yShip2Position = y2;
+        this.xShip3Position = x3;
+        this.yShip3Position = y3;
 
     }
 
@@ -90,7 +96,7 @@ public class BattleshipGUIController implements MouseListener {
         distanceTop = 31;
         cellWidth = 50;
         cellHeight = 50;
-        numbersOfUserGuess=0;
+        numbersOfUserGuess = 0;
 
     }
 
@@ -100,25 +106,31 @@ public class BattleshipGUIController implements MouseListener {
         numbersOfUserGuess++;
         Update_view update_view = new Update_view();
 
-        if(numbersOfUserGuess<=3) {
-//            JFrame frame = new JFrame("Show Message Dialog");
-        this.setRow(Math.abs((e.getX() - distanceLeft) / cellWidth));
-        this.setCol(Math.abs((e.getY() - distanceTop) / cellHeight));
-//            update_view.displayMessage(row, col, "Your guess is " + " x " + col + " y" + row);
-            isShip=comparePosition();
+        if (numbersOfUserGuess <= 3) {
+            this.setRow(Math.abs((e.getX() - distanceLeft) / cellWidth));
+            this.setCol(Math.abs((e.getY() - distanceTop) / cellHeight));
+            isShip = comparePosition();
             if (isShip) {
                 update_view.displayHit();
                 try {
-                    BattleshipGUI.frame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(ResourceLoader.load("static/ship.png")))));
+                    img = new ImageIcon(read(getClass().getResource("/static/ship.png")));
+                    g = BattleshipGUI.frame.getGraphics();
+                    g.drawImage(img.getImage(), e.getX(), e.getY(), 45, 30, null);
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
-            }
-            else
+                BattleshipGUI.frame.setVisible(true);
+            } else
                 update_view.displayMiss();
+            try {
+                img = new ImageIcon(read(getClass().getResource("/static/miss.png")));
+                g = BattleshipGUI.frame.getGraphics();
+                g.drawImage(img.getImage(), e.getX(), e.getY(), 45, 30, null);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
 
-                }
-        else{
+        } else {
             update_view.displayMessage("Game over");
         }
     }// End mouseClicked method
@@ -142,14 +154,13 @@ public class BattleshipGUIController implements MouseListener {
 
     }// End mouseExited method
 
-    public boolean comparePosition()
-    {
-        ValueRange rangeX1 = ValueRange.of(xShip1Position-1, xShip1Position+1);
-        ValueRange rangeY1 = ValueRange.of(yShip1Position-1, yShip1Position+1);
-        ValueRange rangeX2 = ValueRange.of(xShip2Position-1, xShip2Position+1);
-        ValueRange rangeY2 = ValueRange.of(yShip2Position-1, yShip2Position+1);
-        ValueRange rangeX3 = ValueRange.of(xShip3Position-1, xShip3Position+1);
-        ValueRange rangeY3 = ValueRange.of(yShip3Position-1, yShip3Position+1);
+    public boolean comparePosition() {
+        ValueRange rangeX1 = ValueRange.of(xShip1Position - 1, xShip1Position + 1);
+        ValueRange rangeY1 = ValueRange.of(yShip1Position - 1, yShip1Position + 1);
+        ValueRange rangeX2 = ValueRange.of(xShip2Position - 1, xShip2Position + 1);
+        ValueRange rangeY2 = ValueRange.of(yShip2Position - 1, yShip2Position + 1);
+        ValueRange rangeX3 = ValueRange.of(xShip3Position - 1, xShip3Position + 1);
+        ValueRange rangeY3 = ValueRange.of(yShip3Position - 1, yShip3Position + 1);
         if (rangeX1.isValidIntValue(row) && rangeY1.isValidIntValue(col))
             return true;
         else if (rangeX2.isValidIntValue(row) && rangeY2.isValidIntValue(col))

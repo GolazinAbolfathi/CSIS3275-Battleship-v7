@@ -16,6 +16,13 @@ public class BattleshipGUI extends JFrame {
     public static JFrame frame;
     public static JButton backToMain;
 
+    public static JFrame getFrame() {
+        return frame;
+    }
+
+    public static void setFrame(JFrame frame) {
+        BattleshipGUI.frame = frame;
+    }
 
     public BattleshipGUI() {
         frame=new JFrame();
@@ -42,7 +49,6 @@ public class BattleshipGUI extends JFrame {
         c.gridy = 0;
         // backToMain.setLocation(10,500);
         backToMain.setBounds(100,500,500,10);
-//        backToMain.addActionListener(new menuAction());
         backToMain.addActionListener(new Update_view());
         frame.add(backToMain,c);
 
@@ -82,16 +88,12 @@ public class BattleshipGUI extends JFrame {
 
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
-
-//             img = new ImageIcon(path);
             try{
             img=new ImageIcon(read(getClass().getResource("/static/radar.jpg")));
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-
-//            img = new ImageIcon(path);
             g.drawImage(img.getImage(), x, y, this.getWidth(), this.getHeight(), null);
             setVisible(true);
 

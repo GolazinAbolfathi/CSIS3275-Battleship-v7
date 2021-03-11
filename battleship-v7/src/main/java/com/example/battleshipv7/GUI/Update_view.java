@@ -27,6 +27,7 @@ public class Update_view extends JFrame implements ActionListener {
     public void displayHit() {
 
         Message message1 = new Message("Hit !!");
+
     }
 
     public void displayMiss() {
