@@ -33,11 +33,15 @@ public class BoardGUI extends JFrame {
         c.insets = new Insets(2, 2, 70, 2);
         c.gridx = 1;
         c.gridy = 0;
+        label.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 30));
         mainPanel.add(label,c);
 
         //platBtn:
         playBtn=new JButton("New Game");
         playBtn.addActionListener(new Update_view());
+        playBtn.setPreferredSize(new Dimension(120,70));
+        playBtn=new JButton("",new ImageIcon(getClass().getResource("/static/start.png")));
+        playBtn.setBackground(Color.decode("#A3E4E1"));
         c.fill = GridBagConstraints.CENTER;
         c.insets = new Insets(5, 5, 5, 5);
         c.gridx = 1;
@@ -51,6 +55,7 @@ public class BoardGUI extends JFrame {
         c.insets = new Insets(5, 5, 5, 5);
         c.gridx = 1;
         c.gridy = 4;
+        instructionBtn=new JButton("",new ImageIcon(getClass().getResource("/static/instructions.png")));
         mainPanel.add(instructionBtn,c);
 
         //Main Frame
