@@ -1,4 +1,7 @@
 package com.example.battleshipv7.controller;
+/**
+ *
+ */
 
 import com.example.battleshipv7.GUI.BattleshipGUI;
 import com.example.battleshipv7.GUI.Update_view;
@@ -34,6 +37,7 @@ public class BattleshipGUIController implements MouseListener {
         this.row = row;
     }
 
+
     public void setCol(int col) {
         this.col = col;
     }
@@ -42,6 +46,7 @@ public class BattleshipGUIController implements MouseListener {
     public void setCellWidth(int cellWidth) {
         this.cellWidth = cellWidth;
     }
+
 
     public void setCellHeight(int cellHeight) {
         this.cellHeight = cellHeight;
@@ -97,7 +102,7 @@ public class BattleshipGUIController implements MouseListener {
         Update_view update_view = new Update_view();
 
         //if the number of wrong guess is less than 3
-        if (numbersOfUserGuess <= 3) {
+//        if (numbersOfUserGuess <= 3) {
             this.setRow(Math.abs((e.getX() - distanceLeft) / cellWidth));
             this.setCol(Math.abs((e.getY() - distanceTop) / cellHeight));
             isShip = comparePosition();
@@ -124,10 +129,10 @@ public class BattleshipGUIController implements MouseListener {
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }//end try catch
-        } else {
+//        } else {
             //if the number of wrong guess is more than 3
             update_view.displayMessage("Game over");
-        }//end if
+//        }//end if
     }// End mouseClicked method
 
     @Override
