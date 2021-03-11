@@ -1,5 +1,7 @@
 package com.example.battleshipv7.entity;
 
+import com.example.battleshipv7.GUI.menuAction;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,6 +11,7 @@ public class Message extends JFrame {
     public static JButton backToBoardBtn;
     public static JTextField txtBox;
     public static JPanel panel;
+    public static JButton closeBtn;
 
     public Message() {
     }
@@ -44,6 +47,14 @@ public class Message extends JFrame {
         c.gridx = 0;
         c.gridy = 4;
         panel.add(backToBoardBtn, c);
+
+        ////////**********************
+        closeBtn=new JButton("CLOSE");
+        c.gridx = 0;
+        c.gridy = 3;
+        closeBtn.addActionListener(new menuAction());
+        panel.add(closeBtn, c);
+        ///////*********************
 
         //results Textbox
         txtBox = new JTextField(20);

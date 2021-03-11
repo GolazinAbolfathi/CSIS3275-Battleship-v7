@@ -127,7 +127,6 @@ public class BattleshipGUIController implements MouseListener {
     {
         ValueRange rangeX = ValueRange.of(xShip1Position-1, xShip1Position+1);
         ValueRange rangeY = ValueRange.of(yShip1Position-1, yShip1Position+1);
-//        if ((((xShip1Position-10)<=row) && (row=<(xShip1Position+10))) && (((yShip1Position-10)<=col) && (col=<(yShip1Position+10))))
         if (rangeX.isValidIntValue(row) && rangeY.isValidIntValue(col))
             return true;
         else

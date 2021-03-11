@@ -13,13 +13,17 @@ public class BattleshipGUI extends JFrame {
 
     public int row;
     public int col;
+    public static JFrame frame;
+    public static JButton backToMain;
+
 
     public BattleshipGUI() {
-        this.setTitle("Battleship");
-        this.setSize(510, 510);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
-        this.setResizable(false);
+        frame=new JFrame();
+        frame.setTitle("Battleship");
+        frame.setSize(510, 510);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.setResizable(false);
         this.row = 0;
         this.col = 0;
         String path = "src/main/resources/static/radar.jpg";
@@ -27,10 +31,23 @@ public class BattleshipGUI extends JFrame {
         gameBoard.setPath(path);
         gameBoard.setX(0);
         gameBoard.setY(0);
-        this.setContentPane(gameBoard);
+        frame.setContentPane(gameBoard);
 
         BattleshipGUIController mouseClick = new BattleshipGUIController();
-        this.addMouseListener(mouseClick);
+        frame.addMouseListener(mouseClick);
+
+        //******************************************************
+        backToMain=new JButton("Back to Main Menu");
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridx = 10;
+        c.gridy = 0;
+        // backToMain.setLocation(10,500);
+        backToMain.setBounds(100,500,500,10);
+        backToMain.addActionListener(new menuAction());
+        frame.add(backToMain,c);
+
+
+        //******************************************************
 
     } // End BattleshipGUI constructor
 
