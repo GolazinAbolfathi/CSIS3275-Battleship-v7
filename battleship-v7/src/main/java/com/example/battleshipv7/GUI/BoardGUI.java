@@ -48,7 +48,7 @@ public class BoardGUI extends JFrame {
 
         //platBtn:
         playBtn=new JButton("New Game");
-        playBtn.setPreferredSize(new Dimension(120,70));
+        playBtn.setPreferredSize(new Dimension(120,80));
         backgroundButton=new ImageIcon(getClass().getResource("/static/start.jpg"));
         backgroundButton.getImage().getScaledInstance(110,70,Image.SCALE_DEFAULT);
         playBtn=new JButton("",backgroundButton);
@@ -70,7 +70,7 @@ public class BoardGUI extends JFrame {
         instructionBtn=new JButton("",backgroundButton);
         instructionBtn.setPreferredSize(new Dimension(120,40));
         instructionBtn.addActionListener(new Update_view());
-//        instructionBtn.setBackground(Color.decode("#FFFFFF"));
+        instructionBtn.setBackground(Color.decode("#FFFFFF"));
         mainPanel.add(instructionBtn,c);
 
         //Credit Button:
@@ -85,7 +85,7 @@ public class BoardGUI extends JFrame {
         c.gridx = 1;
         c.gridy = 8;
         creditBtn.addActionListener(new Update_view());
-//        creditBtn.setBackground(Color.decode("#FFFFFF"));
+        creditBtn.setBackground(Color.decode("#FFFFFF"));
         mainPanel.add(creditBtn,c);
 
         //Main Frame
