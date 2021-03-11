@@ -2,19 +2,15 @@ package com.example.battleshipv7.controller;
 
 import com.example.battleshipv7.GUI.BattleshipGUI;
 import com.example.battleshipv7.GUI.Update_view;
-import com.example.battleshipv7.model.ResourceLoader;
-import org.w3c.dom.ranges.Range;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.time.temporal.ValueRange;
-
 import static javax.imageio.ImageIO.read;
 
+//BattleshipGUIController class
 public class BattleshipGUIController implements MouseListener {
     int row;
     int col;
@@ -24,17 +20,14 @@ public class BattleshipGUIController implements MouseListener {
     int cellHeight;
     int numbersOfUserGuess;
     boolean isShip;
-
     int xShip1Position;
     int yShip1Position;
     int xShip2Position;
     int yShip2Position;
     int xShip3Position;
     int yShip3Position;
-
     ImageIcon img;
     Graphics g;
-//    BattleshipGUI frame;
 
     //setters
     public void setRow(int row) {
@@ -63,7 +56,6 @@ public class BattleshipGUIController implements MouseListener {
         return col;
     }
 
-
     public int getCellWidth() {
         return cellWidth;
     }
@@ -73,6 +65,15 @@ public class BattleshipGUIController implements MouseListener {
     }
 
     //constructor
+    public BattleshipGUIController() {
+        distanceLeft = 9;
+        distanceTop = 31;
+        cellWidth = 50;
+        cellHeight = 50;
+        numbersOfUserGuess = 0;
+    }//end default constructor
+
+    //parametrized constructor
     public BattleshipGUIController(int x1, int y1, int x2, int y2, int x3, int y3) {
         row = 0;
         col = 0;
@@ -87,18 +88,7 @@ public class BattleshipGUIController implements MouseListener {
         this.yShip2Position = y2;
         this.xShip3Position = x3;
         this.yShip3Position = y3;
-
-    }
-
-    public BattleshipGUIController() {
-
-        distanceLeft = 9;
-        distanceTop = 31;
-        cellWidth = 50;
-        cellHeight = 50;
-        numbersOfUserGuess = 0;
-
-    }
+    }// end parametrized constructor
 
     //userGuess
     @Override
@@ -106,10 +96,13 @@ public class BattleshipGUIController implements MouseListener {
         numbersOfUserGuess++;
         Update_view update_view = new Update_view();
 
+        //if the number of wrong guess is less than 3
         if (numbersOfUserGuess <= 3) {
             this.setRow(Math.abs((e.getX() - distanceLeft) / cellWidth));
             this.setCol(Math.abs((e.getY() - distanceTop) / cellHeight));
             isShip = comparePosition();
+
+            //if hit, draw ship image in the location
             if (isShip) {
                 update_view.displayHit();
                 try {
@@ -118,9 +111,11 @@ public class BattleshipGUIController implements MouseListener {
                     g.drawImage(img.getImage(), e.getX(), e.getY(), 45, 30, null);
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
-                }
+                } //end try catch
                 BattleshipGUI.frame.setVisible(true);
             } else
+
+                //if miss, draw miss image in the location
                 update_view.displayMiss();
             try {
                 img = new ImageIcon(read(getClass().getResource("/static/miss.png")));
@@ -128,11 +123,11 @@ public class BattleshipGUIController implements MouseListener {
                 g.drawImage(img.getImage(), e.getX(), e.getY(), 45, 30, null);
             } catch (IOException ioException) {
                 ioException.printStackTrace();
-            }
-
+            }//end try catch
         } else {
+            //if the number of wrong guess is more than 3
             update_view.displayMessage("Game over");
-        }
+        }//end if
     }// End mouseClicked method
 
     @Override
@@ -154,6 +149,7 @@ public class BattleshipGUIController implements MouseListener {
 
     }// End mouseExited method
 
+    //compare user guess and ships locations
     public boolean comparePosition() {
         ValueRange rangeX1 = ValueRange.of(xShip1Position - 1, xShip1Position + 1);
         ValueRange rangeY1 = ValueRange.of(yShip1Position - 1, yShip1Position + 1);
@@ -171,5 +167,5 @@ public class BattleshipGUIController implements MouseListener {
             return false;
     }
 
-}// End MouseClick class
+}// End BattleshipGUIController class
 

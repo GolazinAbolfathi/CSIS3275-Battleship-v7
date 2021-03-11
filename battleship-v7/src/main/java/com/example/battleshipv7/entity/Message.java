@@ -1,9 +1,6 @@
 package com.example.battleshipv7.entity;
 
-//import com.example.battleshipv7.GUI.menuAction;
-
 import com.example.battleshipv7.GUI.Update_view;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -15,9 +12,11 @@ public class Message extends JFrame {
     public static JPanel panel;
     public static JButton closeBtn;
 
+    //default constructor
     public Message() {
     }
 
+    //parametrized constructor
     public Message(String message) {
 
         panel = new JPanel();
@@ -26,21 +25,22 @@ public class Message extends JFrame {
         frame.setSize(100, 50);
         frame.setVisible(true);
         frame.setTitle("Message");
-        frame.setResizable(false); //change parameter to true to allow user to resize window
+
+        //change parameter to true to allow user to resize window
+        frame.setResizable(false);
 
         //button panel
         buttonPanel = new JPanel();
-//        panel.add(buttonPanel);
+        //panel.add(buttonPanel);
         buttonPanel.setLayout(new GridLayout(1, 5));
 
         GridBagConstraints c = new GridBagConstraints();
-//        c.anchor = GridBagConstraints.FIRST_LINE_START;
+        //c.anchor = GridBagConstraints.FIRST_LINE_START;
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 0;
         c.gridy = 0;
         c.weightx = 1.0;
         c.weighty = 0.65;
-
         panel.add(buttonPanel, c);
 
         //back to main window (Board Button)
@@ -54,18 +54,15 @@ public class Message extends JFrame {
         closeBtn=new JButton("CLOSE");
         c.gridx = 0;
         c.gridy = 3;
-//        closeBtn.addActionListener(new menuAction());
+        //closeBtn.addActionListener(new menuAction());
         closeBtn.addActionListener(new Update_view());
-
         panel.add(closeBtn, c);
-        ///////*********************
 
         //results Textbox
         txtBox = new JTextField(20);
         c.gridx = 0;
         c.gridy = 5;
         panel.add(txtBox, c);
-
         frame.setContentPane(panel);
         frame.pack();
 

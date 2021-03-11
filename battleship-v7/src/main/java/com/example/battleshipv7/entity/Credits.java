@@ -12,12 +12,12 @@ public class Credits extends JFrame {
     {
         frame=new JFrame("Group 5 - CSIS 3275");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        creditlabel = new JLabel("Group Members: \n Soheila Hoseini\n Golazin Abolfathi \n Jacky Lam \n Bosco Li");
-        creditlabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 25));
-        frame.add(creditlabel);
+        creditlabel = new JLabel("<html> Group Members:<br> Soheila Hoseini<br> Golazin Abolfathi <br> Jacky Lam <br> Bosco Li</html>");
+        creditlabel.setFont(new Font("Times New Roman", Font.BOLD , 24));
 
+        frame.add(creditlabel);
         frame.setVisible(true);
-        frame.setSize(200,200);
+        frame.setSize(300,300);
     }
 
 

@@ -1,16 +1,14 @@
 package com.example.battleshipv7.entity;
 
-//import com.example.battleShipv2.model.TileContent;
-
 public class Battleship {
     public static final int VERTICAL = 0;
     public static final int HORIZONTAL = 1;
-
     private final int x;
     private final int y;
     private final int orientation;
     private final boolean[] sections;
 
+    //constructor
     public Battleship(int length, int x, int y, int orientation) {
         sections = new boolean[length];
         this.x = x;
@@ -40,5 +38,4 @@ public class Battleship {
                 return true;
         return false;
     }
-
 }
