@@ -124,12 +124,11 @@ public class BattleshipGUIController implements MouseListener {
         // Find the cell the mouse was clicked in
         int x = (mousePos[0] - gridTop[0]) / tileSize[0];
         int y = (mousePos[1] - gridTop[1]) / tileSize[1];
-        System.out.printf("Mouse clicked in cell (%d, %d)%n", x, y);
-//
-//        this.setRow(Math.abs((e.getX() - distanceLeft) / cellWidth));
-//        this.setCol(Math.abs((e.getY() - distanceTop) / cellHeight));
-//
-//
+
+        this.setRow(Math.abs((e.getX() - distanceLeft) / cellWidth));
+        this.setCol(Math.abs((e.getY() - distanceTop) / cellHeight));
+
+
         isShip = comparePosition();
 
         //if hit, draw ship image in the location
