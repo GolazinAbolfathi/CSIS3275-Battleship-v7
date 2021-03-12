@@ -85,7 +85,7 @@ public class BattleshipGUIController implements MouseListener {
         row = 0;
         col = 0;
         distanceLeft = 9;
-        distanceTop = 31;
+        distanceTop = 32;
         cellWidth = 50;
         cellHeight = 50;
         numbersOfUserGuess = 0;
@@ -103,10 +103,33 @@ public class BattleshipGUIController implements MouseListener {
         numbersOfUserGuess++;
         Update_view update_view = new Update_view();
 
+
+        int[] gridTop = { 73, 85 };
+        int titleBarOffset = 32;
+        int[] tileSize = { 69, 52 };
+        // Grid size 7
+        int[] gridBottom = {
+                gridTop[0] + tileSize[0] * 7,
+                gridTop[1] + tileSize[1] * 7};
         //if the number of wrong guess is less than 3
 //        if (numbersOfUserGuess <= 3) {
-        this.setRow(Math.abs((e.getX() - distanceLeft) / cellWidth));
-        this.setCol(Math.abs((e.getY() - distanceTop) / cellHeight));
+
+        int[] mousePos = { e.getX(), e.getY() };
+        if (mousePos[0] < gridTop[0] ||
+                mousePos[0] > gridBottom[0] ||
+                mousePos[1] < gridTop[1] ||
+                mousePos[1] > gridBottom[1]
+        ) return;
+
+        // Find the cell the mouse was clicked in
+        int x = (mousePos[0] - gridTop[0]) / tileSize[0];
+        int y = (mousePos[1] - gridTop[1]) / tileSize[1];
+        System.out.printf("Mouse clicked in cell (%d, %d)%n", x, y);
+//
+//        this.setRow(Math.abs((e.getX() - distanceLeft) / cellWidth));
+//        this.setCol(Math.abs((e.getY() - distanceTop) / cellHeight));
+//
+//
         isShip = comparePosition();
 
         //if hit, draw ship image in the location
